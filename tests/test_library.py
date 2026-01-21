@@ -38,3 +38,12 @@ class TestLibrary(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+    # -------- Sprint 3 tests --------
+    def test_report_contains_header(self):
+        report = self.lib.generate_report()
+        self.assertIn("Book ID | Title | Author | Status", report)
+
+    def test_report_contains_book_entry(self):
+        self.lib.add_book(1, "Python", "Guido")
+        report = self.lib.generate_report()
+        self.assertIn("1 | Python | Guido | Available", report)
